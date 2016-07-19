@@ -86,21 +86,20 @@ for (k in 1:10) {
       Center = S[i,j]
       rt = sum(r)
 
-      delta_S[i-1,j-1] = delta_S[i-1,j-1] + r[1,1]*Center  
-      delta_S[i-1,j] = delta_S[i-1,j] + r[1,2]*Center  
-      delta_S[i-1,j+1] = delta_S[i-1,j+1] + r[1,3]*Center  
-      delta_S[i,j-1] = delta_S[i,j-1] + r[2,1]*Center  
-      delta_S[i,j] = delta_S[i,j] + r[2,2]*Center  
-      delta_S[i,j+1] = delta_S[i,j+1] + r[2,3]*Center  
-      delta_S[i+1,j-1] = delta_S[i+1,j-1] + r[3,1]*Center  
-      delta_S[i+1,j] = delta_S[i+1,j] + r[3,2]*Center  
-      delta_S[i+1,j+1] = delta_S[i+1,j+1] + r[3,3]*Center  
+      delta_S[i-1,j-1] = delta_S[i-1,j-1] + r[1,1]*Center *dt  
+      delta_S[i-1,j] = delta_S[i-1,j] + r[1,2]*Center *dt  
+      delta_S[i-1,j+1] = delta_S[i-1,j+1] + r[1,3]*Center *dt  
+      delta_S[i,j-1] = delta_S[i,j-1] + r[2,1]*Center *dt  
+      delta_S[i,j] = delta_S[i,j] + r[2,2]*Center *dt  
+      delta_S[i,j+1] = delta_S[i,j+1] + r[2,3]*Center *dt  
+      delta_S[i+1,j-1] = delta_S[i+1,j-1] + r[3,1]*Center *dt  
+      delta_S[i+1,j] = delta_S[i+1,j] + r[3,2]*Center *dt  
+      delta_S[i+1,j+1] = delta_S[i+1,j+1] + r[3,3]*Center *dt   
       
       t = (r[1,1]*Center*dt + r[1,2]*Center*dt+ r[1,3]*Center*dt+ r[2,1]*Center*dt+ 
              r[2,3]*Center*dt+ r[3,1]*Center*dt+ r[3,2]*Center*dt+ r[3,3]*Center*dt)
       
       delta_S[i,j] = delta_S[i,j] - t  
-      
       
     }
   }
