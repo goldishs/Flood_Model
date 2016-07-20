@@ -110,4 +110,32 @@ extraction = function(p){
 }
 
 
+####################################################
+
+deltaP_W = function(q, W, C){
+  n = dim(q)[1]
+  m = dim(q)[2]
+  # initalizing the delta percent of water that moves from layer 1 to layer 2 matrix
+  # C is the percent age of S that goes into the second layer. 
+  dP_W = matrix(rep(0,n*m),nrow=n,ncol=m)
+  
+  for (i in 1:(n)) {
+    for (j in 1:(m)) {
+      if (W[i,j]>=1){
+        dP_W[i,j] = 0  
+      }else{
+        dP_W[i,j] = C*q[i,j]
+      }
+    }
+  }
+  return(dP_W)
+}
+
+
+
+
+
+
+
+
 
