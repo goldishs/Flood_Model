@@ -73,6 +73,41 @@ borderize = function(p,h){
 }
 
 
+####################################################
+
+# Gaussian Kernel Function
+
+# This is part of the code i found off of stack exchange
+# it only exist to make a semi -belivable elevaiton matrix.
+GaussianKernel <- function(sigma=s, n=d) {
+  m <- matrix(nc=n, nr=n)
+  col <- rep(1:n, n)
+  row <- rep(1:n, each=n)
+  x <- col - ceiling(n/2)
+  y <- row - ceiling(n/2)
+  m[cbind(row, col)] <- 1/(2*pi*sigma^2) * exp(-(x^2+y^2)/(2*sigma^2))
+  m / sum(m)
+}
+
+
+####################################################
+
+# extracts the interior of the r.sim matrix. 
+# because the raster function sucks i need to create 
+# a function that only grabs the inner n X m values
+# because converting r.sim to matrix results in a 
+# couple of borders of NA. 
+extraction = function(p){
+  n = dim(p)[1]-8
+  m = dim(p)[2]-8
+  door = matrix(rep(0,n*m),nrow=n,ncol=m)
+  for (i in 4:(n+4)) {
+    for (j in 4:(m+4)) {
+      door[i-4,j-4] = p[i,j]
+    }
+  }
+  return(door)
+}
 
 
 
