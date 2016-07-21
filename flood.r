@@ -27,9 +27,10 @@ source("Helperfunctions.R")
 set.seed(100) # makes the random not random
 
 #where the .png files will be saved
-#terminal command to generate .gif (ImageMagick must be installed)
-#convert *.png -delay 5 -loop 0 hoopla.gif
 setwd("/Users/goldishs/Desktop/plots")
+
+#terminal command to generate .gif (ImageMagick must be installed)
+#convert -delay 10 -loop 0 -magnify *.png flood.gif
 
 
 ####################################################
