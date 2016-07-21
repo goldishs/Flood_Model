@@ -29,6 +29,9 @@ set.seed(100) # makes the random not random
 #where the .png files will be saved
 setwd("/Users/goldishs/Desktop/plots")
 
+#terminal command to generate .gif (ImageMagick must be installed)
+#convert -delay 10 -loop 0 -magnify *.png flood.gif
+
 
 ####################################################
 #   START OF MAIN PROGRAM
@@ -169,12 +172,13 @@ for (k in 1:iter) {
   # zlim = c(min, max) manually adjust the color scale for each image.
   # thus the max needs to be the true max to the scale all of the images correctly
   
+  #http://www.r-bloggers.com/animated-plots-with-r/
   # creating a name for each plot file with leading zeros
   if (k < 10) {name = paste('000',k,'plot.png',sep='')}
   if (k < 100 && k >= 10) {name = paste('00',k,'plot.png', sep='')}
   if (k >= 100) {name = paste('0', k,'plot.png', sep='')}
   
-  #saves the plot as a .png file in the working directory
+  #saves the surface water plot as a .png file in the working directory
   png(name)
   # i want to move this out side of the loop to see if this speeds up the code.
   image.plot(S, zlim = c(0.0, 1))
@@ -185,7 +189,7 @@ for (k in 1:iter) {
 #image.plot(S, zlim = c(0.0, 200))
 #print(S)
 
-#saves the plot as a .png file in the working directory
-png(name)
+#saves the elevations plot as a .png file in the working directory
+png("Elevations.png")
 image.plot(E, zlim = c(0.0, 1))
 dev.off()
