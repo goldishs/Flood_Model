@@ -12,6 +12,9 @@
 #
 ####################################################
 
+#set the working directory (Helperfunctions.R must be here)
+setwd("/Users/goldishs/Desktop/Stochastic-Project/Flood_Model")
+
 # LIBRARIES AND FUNCTIONS
 ####################################################
 
@@ -23,7 +26,8 @@ require(fields)
 source("Helperfunctions.R")
 set.seed(100) # makes the random not random
 
-
+#where the .png files will be saved
+setwd("/Users/goldishs/Desktop/plots")
 
 
 ####################################################
@@ -165,11 +169,23 @@ for (k in 1:iter) {
   # zlim = c(min, max) manually adjust the color scale for each image.
   # thus the max needs to be the true max to the scale all of the images correctly
   
+  # creating a name for each plot file with leading zeros
+  if (k < 10) {name = paste('000',k,'plot.png',sep='')}
+  if (k < 100 && k >= 10) {name = paste('00',k,'plot.png', sep='')}
+  if (k >= 100) {name = paste('0', k,'plot.png', sep='')}
+  
+  #saves the plot as a .png file in the working directory
+  png(name)
   # i want to move this out side of the loop to see if this speeds up the code.
   image.plot(S, zlim = c(0.0, 1))
+  dev.off()
 }
 
 # moving this outside the loop does provide some speed up.
 #image.plot(S, zlim = c(0.0, 200))
-print(S)
+#print(S)
+
+#saves the plot as a .png file in the working directory
+png(name)
 image.plot(E, zlim = c(0.0, 1))
+dev.off()
