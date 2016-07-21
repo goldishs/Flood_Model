@@ -38,9 +38,9 @@ setwd("/Users/goldishs/Desktop/plots")
 ####################################################
 
 #dimensions of our grid
-n = 40#rows
-m = 40#columns
-iter = 30# number of iterations
+n = 100#rows
+m = 100#columns
+iter = 100# number of iterations
 # iter = 75 works well for p_S of 0.05 When elevation is constant.
 # when n =100 m=100 and iter =75 the code takes about 1:33 seconds to compile.
 # our code is extreamly slow.
@@ -110,9 +110,22 @@ dt = 1.00
 
 
 #loop through the matrices and update surface water
-image.plot(S, zlim = c(0.0, 0.7))
-
 for (k in 1:iter) {
+  
+  # zlim = c(min, max) manually adjust the color scale for each image.
+  # thus the max needs to be the true max to the scale all of the images correctly
+  
+  #http://www.r-bloggers.com/animated-plots-with-r/
+  # creating a name for each plot file with leading zeros
+  if (k < 10) {name = paste('000',k,'plot.png',sep='')}
+  if (k < 100 && k >= 10) {name = paste('00',k,'plot.png', sep='')}
+  if (k >= 100) {name = paste('0', k,'plot.png', sep='')}
+  
+  #saves the surface water plot as a .png file in the working directory
+  png(name)
+  image.plot(S, zlim = c(0.0, 1))
+  dev.off()
+  
   #change in surface water
   delta_S = matrix(rep(0,(n) * (m)),nrow = n,ncol = m)
   
@@ -169,26 +182,22 @@ for (k in 1:iter) {
   # then S will Flip back and forth between two states. meaning
   # that i dont think it will ever converge (i.e. even out)
   
-  # zlim = c(min, max) manually adjust the color scale for each image.
-  # thus the max needs to be the true max to the scale all of the images correctly
-  
-  #http://www.r-bloggers.com/animated-plots-with-r/
-  # creating a name for each plot file with leading zeros
-  if (k < 10) {name = paste('000',k,'plot.png',sep='')}
-  if (k < 100 && k >= 10) {name = paste('00',k,'plot.png', sep='')}
-  if (k >= 100) {name = paste('0', k,'plot.png', sep='')}
-  
-  #saves the surface water plot as a .png file in the working directory
-  png(name)
-  # i want to move this out side of the loop to see if this speeds up the code.
-  image.plot(S, zlim = c(0.0, 1))
-  dev.off()
 }
 
 # moving this outside the loop does provide some speed up.
 #image.plot(S, zlim = c(0.0, 200))
 #print(S)
 
+#http://www.r-bloggers.com/animated-plots-with-r/
+# creating a name for each plot file with leading zeros
+if (iter+1 < 10) {name = paste('000',iter+1,'plot.png',sep='')}
+if (iter+1 < 100 && k >= 10) {name = paste('00',iter+1,'plot.png', sep='')}
+if (iter+1 >= 100) {name = paste('0', iter+1,'plot.png', sep='')}
+
+#saves the surface water plot as a .png file in the working directory
+png(name)
+image.plot(S, zlim = c(0.0, 1))
+dev.off()
 #saves the elevations plot as a .png file in the working directory
 png("Elevations.png")
 image.plot(E, zlim = c(0.0, 1))
