@@ -131,7 +131,37 @@ deltaP_W = function(q, W, C){
   return(dP_W)
 }
 
-
+# compute change in surface water
+delta_surface_water = function(E,S,n,m,delta_S,p_S){
+  for (i in 2:(n - 1)) {
+    for (j in 2:(m - 1)) {
+      d = delta_ES(E,S,i,j)
+      r = ratio(d)
+      Center = S[i,j]
+      
+      delta_S[i - 1,j - 1] = delta_S[i - 1,j - 1] + r[1,1] * Center * p_S
+      delta_S[i - 1,j] = delta_S[i - 1,j] + r[1,2] * Center * p_S
+      delta_S[i - 1,j + 1] = delta_S[i - 1,j + 1] + r[1,3] * Center * p_S
+      delta_S[i,j - 1] = delta_S[i,j - 1] + r[2,1] * Center * p_S
+      delta_S[i,j] = delta_S[i,j] + r[2,2] * Center * p_S
+      delta_S[i,j + 1] = delta_S[i,j + 1] + r[2,3] * Center * p_S
+      delta_S[i + 1,j - 1] = delta_S[i + 1,j - 1] + r[3,1] * Center * p_S
+      delta_S[i + 1,j] = delta_S[i + 1,j] + r[3,2] * Center * p_S
+      delta_S[i + 1,j + 1] = delta_S[i + 1,j + 1] + r[3,3] * Center * p_S
+      
+      t = (
+        r[1,1] * Center * p_S + r[1,2] * Center * p_S + r[1,3] * Center * p_S + r[2,1] *
+          Center * p_S +
+          r[2,3] * Center * p_S + r[3,1] * Center * p_S + r[3,2] * Center *
+          p_S + r[3,3] * Center * p_S
+      )
+      
+      delta_S[i,j] = delta_S[i,j] - t
+      
+    }
+  }
+  return(delta_S)
+}
 
 
 
