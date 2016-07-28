@@ -16,7 +16,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %dimensions of our grid
-m = 100;%rows
-n = 100;%columns
+m = 10;%rows
+n = 10;%columns
 Q = 3;%Total number of layers
 
+T = ()*()+;%Total number of variables in tableau
+
+for q = 1:Q
+    for i = 1:m
+        for j = 1:n
+            
+        end
+    end
+end
