@@ -16,7 +16,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %dimensions of our grid
-n = 100;%rows
-m = 100;%columns
+m = 100;%rows
+n = 100;%columns
 iter = 50;% number of iterations
 
