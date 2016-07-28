@@ -16,7 +16,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %dimensions of our grid
-m = 100;%rows
-n = 100;%columns
-iter = 50;% number of iterations
+m = 2;%rows
+n = 4;%columns
+Q = 2;%Total number of layers
 
+
+% number of iterations
+iter = 50;
+
+encode(2,1,2,2,m,n,Q)
