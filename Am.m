@@ -1,18 +1,20 @@
+function [A] = Am(l)
 %%
+
 global Q
 global n
 global m
 mnQ = m*n*Q
-A = zeros(mnQ,encode(m,n,Q-1,l))
+A = zeros(mnQ,encode(m,n,Q-1,l));
 %ml = maxl(i,j,k,m,n,Q)
  
-z = 0
+z = 0;
 
 for i = 1:m
     for j = 1:n
         for k = 1:Q
-            z = z + 1
-            a1 = zeros(1,encode(m,n,Q-1,l))
+            z = z + 1;
+            a1 = zeros(1,encode(m,n,Q-1,l));
             for l = 1: maxl(i,j,k)
                 a1(1,encode(i,j,k,l)) = 1;
             end
@@ -35,7 +37,7 @@ end
 
 
 
-
-
+%%
+end
 %%
 
