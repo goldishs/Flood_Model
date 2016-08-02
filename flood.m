@@ -17,7 +17,7 @@
 
 %set working directory
 cd('/Users/goldishs/desktop/data')
-
+E = dlmread('E1.txt');
 %dimensions of our grid
 global m
 global n
