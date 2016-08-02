@@ -14,7 +14,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   START OF MAIN PROGRAM
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [g] = encode(i,j,k,l,m,n,Q)
+function [g] = encode(i,j,k,l)
+global Q
+global n
+global m
 if (i < m) && (j == 1)
     g = ((4*Q-1)+(n-2)*(5*Q-1)+(3*Q-1))*(i-1)+4*(k-1)+l; % i<m,j=1
 elseif (i < m) && (1 < j) && (j < n)

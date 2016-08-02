@@ -1,0 +1,39 @@
+%%
+
+mnQ = m*n*Q
+A = zeros(mnQ,encode(m,n,Q-1,l,m,n,Q))
+ml = maxl(i,j,k,m,n,Q)
+pq = p(ii,jj,kk,ll,m,n,Q)
+z = 0
+
+for i = 1:m
+    for j = 1:n
+        for k = 1:Q
+            z = z + 1
+            a1 = zeros(1,encode(m,n,Q-1,l,m,n,Q))
+            for l = 1:ml
+                a1(1,encode(i,j,k,l, m, n , Q)) = 1;
+            end
+            for ii = max(1,i-1):min(m,i+1)
+                for jj = max(1,j-1):min(m,j+1)
+                    for kk = max(1,k-1):k
+                        for ll = 1:ml
+                            if pq == [i,j,k]
+                                a1(1,encode(ii,jj,kk,ll, m, n, Q )) = -1;
+                            end
+                        end
+                        
+                    end
+                end
+            end
+            A(z,:) = a1; %What does that say on the board?
+        end
+    end  
+end
+
+
+
+
+
+%%
+
