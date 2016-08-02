@@ -5,24 +5,11 @@ global m
 % n is column
 % m is row
 
-
-
 % finding i first
 i = ceil(g/((4*Q-1) + (5*Q-1)*(n-2) + (3*Q-1)));
 rj =  g - ((4*Q-1) + (5*Q-1)*(n-2) + (3*Q-1))*(i-1);
-%
-% finding j 
-% if (rj <= ((4*Q-1) && i < m))
-%     j=1
-% elseif (4*Q <= rj <= ( (4*Q-1) + (n-2)*(5*Q-1)) && i < m)
-%     j = ceil((rj - (4*Q-1))/(5*Q-1))+1
-% elseif (i < m)
-%     j=n
-% elseif (i==m) 
-%     j = ceil(rj/(2*Q-1))
-% end
 
-
+% finding j
 if i<m;
     if rj<4*Q;
         j=1;
@@ -49,10 +36,10 @@ elseif (1<j && i<m)
 elseif (i==m)
     rk = rj -(2*Q-1)*(j-1);
 else
-    x=5;
+    x = 5;
 end
-    
-% finding k 
+
+% finding k
 if (j==1 && i<m)
     k= ceil(rk/(4));
     
@@ -67,23 +54,18 @@ elseif(i==m && j==n)
 else
     x=7;
 end
-    
-    
-    % finding l
-if (i < m) && (j == 1)
 
+
+% finding l
+if (i < m) && (j == 1)
     l = g-(((4*Q-1)+(n-2)*(5*Q-1)+(3*Q-1))*(i-1)+4*(k-1)); % i<m,j=1
 elseif (i < m) && (1 < j) && (j < n)
-
     l = g-(((4*Q-1)+(n-2)*(5*Q-1)+(3*Q-1))*(i-1)+(4*Q-1)+(5*Q-1)*(j-2)+5*(k-1)); % i<m, 1<j<n
 elseif (i < m) && (j == n)
-
     l = g-(((4*Q-1)+(n-2)*(5*Q-1)+(3*Q-1))*(i-1)+(4*Q-1)+(5*Q-1)*(n-2)+3*(k-1)); % i<m, j=n
 elseif (i == m) && (j < n)
-
     l = g-(((4*Q-1)+(n-2)*(5*Q-1)+(3*Q-1))*(m-1)+(2*Q-1)*(j-1)+2*(k-1)); %i=m, j<n
 elseif (i==m && j==n)
-
     %l = g-(((4*Q-1)+(n-2)*(5*Q-1)+(3*Q-1))*(m-1)+(2*Q-1)*(n-1))+k; %i=m, j=n
     if (k==Q)
         disp('ERROR')
@@ -91,11 +73,6 @@ elseif (i==m && j==n)
         l=1;
     end
 end
-    
-    %
-    
-
-
 
 %return(i,j,k,l)
-end 
+end
