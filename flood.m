@@ -2,7 +2,7 @@
 %Math 3800
 %Seth Goldish, Ely Biggs, Taylor Saintable
 %
-%Flood Model     Main program    Version 0.02
+%Flood Model     Main program    Version 0.1
 %
 %
 %
@@ -19,6 +19,8 @@
 global m
 global n
 global Q 
+
+% m, n, and Q should be 50,50,and 3 in our final version. 
 
 m = 5;%rows
 n = 5;%columns
@@ -39,7 +41,8 @@ k = 2;
 l = 3;
 g=encode(i,j,k,l);
 
-[i,j,k,l] = decode(g)
-V
-g
+[i,j,k,l] = decode(g);
 
+
+A = Am(l);
+A = [A;-A];
