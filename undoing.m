@@ -1,15 +1,13 @@
-function [i,j,k,l] = decode(g)
-global Q
-global n
-global m
+function [i,j,k,l] = undoing(g, m, n, Q)
+
 % n is column
 % m is row
 
 
 
 % finding i first
-i = ceil(g/((4*Q-1) + (5*Q-1)*(n-2) + (3*Q-1)));
-rj =  g - ((4*Q-1) + (5*Q-1)*(n-2) + (3*Q-1))*(i-1);
+i = ceil(g/((4*Q-1) + (5*Q-1)*(n-2) + (3*Q-1)))
+rj =  g - ((4*Q-1) + (5*Q-1)*(n-2) + (3*Q-1))*(i-1)
 %
 % finding j 
 % if (rj <= ((4*Q-1) && i < m))
@@ -32,7 +30,7 @@ if i<m;
             j=ceil((rj-(4*Q-1))/(5*Q-1))+1;
         end
         if rj>4*Q-1+(n-2)*(5*Q-1);
-            j=n;
+            j=n
         end
     end
 end
@@ -43,52 +41,52 @@ end
 
 % finding rk
 if (j==1 && i < m)
-    rk=rj;
+    rk=rj
 elseif (1<j && i<m)
-    rk = rj - (4*Q-1) - (j-2)*(5*Q-1);
+    rk = rj - (4*Q-1) - (j-2)*(5*Q-1)
 elseif (i==m)
-    rk = rj -(2*Q-1)*(j-1);
+    rk = rj -(2*Q-1)*(j-1)
 else
-    x=5;
+    x=5
 end
     
 % finding k 
 if (j==1 && i<m)
-    k= ceil(rk/(4));
+    k= ceil(rk/(4))
     
 elseif (1< j && j <n && i<m)
-    k = ceil(rk/(5));
+    k = ceil(rk/(5))
 elseif (j==n && i<m)
-    k = ceil( rk/(3));
+    k = ceil( rk/(3))
 elseif (i==m && j<n)
-    k = ceil(rk /(2));
+    k = ceil(rk /(2))
 elseif(i==m && j==n)
-    k = rk;
+    k = rk
 else
-    x=7;
+    x=7
 end
     
     
     % finding l
 if (i < m) && (j == 1)
-
-    l = g-(((4*Q-1)+(n-2)*(5*Q-1)+(3*Q-1))*(i-1)+4*(k-1)); % i<m,j=1
+    A= 'i<m,j=1'
+    l = g-(((4*Q-1)+(n-2)*(5*Q-1)+(3*Q-1))*(i-1)+4*(k-1)) % i<m,j=1
 elseif (i < m) && (1 < j) && (j < n)
-
-    l = g-(((4*Q-1)+(n-2)*(5*Q-1)+(3*Q-1))*(i-1)+(4*Q-1)+(5*Q-1)*(j-2)+5*(k-1)); % i<m, 1<j<n
+    A='i<m, 1<j<n'
+    l = g-(((4*Q-1)+(n-2)*(5*Q-1)+(3*Q-1))*(i-1)+(4*Q-1)+(5*Q-1)*(j-2)+5*(k-1)) % i<m, 1<j<n
 elseif (i < m) && (j == n)
-
-    l = g-(((4*Q-1)+(n-2)*(5*Q-1)+(3*Q-1))*(i-1)+(4*Q-1)+(5*Q-1)*(n-2)+3*(k-1)); % i<m, j=n
+    A='i<m, j=n'
+    l = g-(((4*Q-1)+(n-2)*(5*Q-1)+(3*Q-1))*(i-1)+(4*Q-1)+(5*Q-1)*(n-2)+3*(k-1)) % i<m, j=n
 elseif (i == m) && (j < n)
-
-    l = g-(((4*Q-1)+(n-2)*(5*Q-1)+(3*Q-1))*(m-1)+(2*Q-1)*(j-1)+2*(k-1)); %i=m, j<n
+    A='i=m, j<n'
+    l = g-(((4*Q-1)+(n-2)*(5*Q-1)+(3*Q-1))*(m-1)+(2*Q-1)*(j-1)+2*(k-1)) %i=m, j<n
 elseif (i==m && j==n)
-
+    A='i=m, j=n'
     %l = g-(((4*Q-1)+(n-2)*(5*Q-1)+(3*Q-1))*(m-1)+(2*Q-1)*(n-1))+k; %i=m, j=n
     if (k==Q)
-        disp('ERROR')
+        x=24
     else
-        l=1;
+        l=1
     end
 end
     
