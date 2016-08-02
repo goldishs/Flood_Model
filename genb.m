@@ -28,24 +28,6 @@ end
 
 
 
-% creating Elevations
-T1 = 10*rand(m,n);
-T2 = 10*rand(m,n);
-T3 = 10*rand(m,n);
 
-E1 = T1+T2+T3;
-E2 = T2+T3;
-E3 = T3;
-
-E = vertcat(E1,E2,E3);
-T = vertcat(T1,T2,T3);
-
-C = rand(m*Q,n);
-S = 3*rand(m*Q,n);
-
-TCS = T.*C - S;
-
-B = genb(TCS, S);
-
-B = [b1,b2];
+B = [b1;b2];
 end

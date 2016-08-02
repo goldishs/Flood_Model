@@ -1,6 +1,5 @@
-function [A] = Am(l)
-%%
-
+% This function generates the A matrix for linprog
+function [A] = gena(l)
 global Q
 global n
 global m
@@ -22,7 +21,7 @@ for i = 1:m
                 for jj = max(1,j-1):min(m,j+1)
                     for kk = max(1,k-1):k
                         for ll = 1: maxl(i,j,k)
-                            if p(ii,jj,kk,ll) == [i,j,k]
+                            if pf(ii,jj,kk,ll) == [i,j,k]
                                 a1(1,encode(ii,jj,kk,ll)) = -1;
                             end
                         end
@@ -37,7 +36,7 @@ end
 
 
 
-%%
+
 end
-%%
+
 
