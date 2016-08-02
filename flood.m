@@ -27,6 +27,9 @@ n = 5;%columns
 Q = 3;%Total number of layers
 V = ((4*Q-1)+(n-2)*(5*Q-1)+(3*Q-1))*(m-1)+(2*Q-1)*(n-1)+(Q-1);%Total number of variables
 
+
+
+
 % number of iterations
 iter = 50;
 
