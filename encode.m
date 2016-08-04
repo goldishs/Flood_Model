@@ -2,9 +2,9 @@
 %Math 3800
 %Seth Goldish, Ely Biggs, Taylor Saintable
 %
-%Flood Model     Tableau Generator    Version 0.001
+%Flood Model     Tableau Generator    Version 1
 %
-%
+% This function maps a node with a direction to a index g.
 %
 %
 %
@@ -12,7 +12,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   START OF MAIN PROGRAM
+%   START OF encode function
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [g] = encode(i,j,k,l)
 global Q

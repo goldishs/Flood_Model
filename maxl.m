@@ -1,3 +1,21 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Math 3800
+%Seth Goldish, Ely Biggs, Taylor Saintable
+%
+%Flood Model     Tableau Generator    Version 1
+%
+%
+% this function takes in values of i,j,k and outputs a scalar value telling
+% you max directions in which water can flow from a node.
+%
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   START OF maxl.m function
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 function [lp] = maxl(i,j,k)
 global Q
 global n
