@@ -31,7 +31,8 @@ Q = 3;%Total number of layers
 V = ((4*Q-1)+(n-2)*(5*Q-1)+(3*Q-1))*(m-1)+(2*Q-1)*(n-1)+(Q-1);%Total number of variables
 
 
-% creating Elevations
+% creating Elevations (these are randomly generated and are only to test if
+% the generating functions work. 
 T1 = 10*rand(m,n);
 T2 = 10*rand(m,n);
 T3 = 10*rand(m,n);
@@ -65,7 +66,7 @@ k = 2;
 l = 3;
 g=encode(i,j,k,l);
 
-[i,j,k,l] = decode(g);
+r = decode(g);
 
 
 A = gena(l);

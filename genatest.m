@@ -1,22 +1,15 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Math 3800
-%Seth Goldish, Ely Biggs, Taylor Saintable
-%
-%Flood Model     Tableau Generator    Version 1
-%
-%
-% this function gereates the A vector for linprog. it was recently updated
-% to use sparce to save memory.
-%
-%
-%
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   START OF gena.m function
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [A] = gena(l)
+%%%%%%%%%%%%%%%%%%%
+
+%NOT IMPORTANT, JUST USED TO FIX GENA.M
+
+%%%%%%%%%%%%%%%%%%%
+
+
+
+
+% This function generates the A matrix for linprog
+function [A] = genatest(l)
 global Q
 global n
 global m
