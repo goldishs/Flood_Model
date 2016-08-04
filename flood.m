@@ -19,8 +19,6 @@
 
 cd('/Users/goldishs/desktop/data')
 
-
-
 %dimensions of our grid
 global m
 global n
