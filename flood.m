@@ -16,7 +16,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %set working directory
-%cd('/Users/goldishs/desktop/data')
+
+cd('/Users/goldishs/desktop/data')
+
+
 
 %dimensions of our grid
 global m
@@ -25,8 +28,8 @@ global Q
 
 % m, n, and Q should be 50,50,and 3 in our final version. 
 
-m = 5;%rows
-n = 5;%columns
+m = 10;%rows
+n = 10;%columns
 Q = 3;%Total number of layers
 V = ((4*Q-1)+(n-2)*(5*Q-1)+(3*Q-1))*(m-1)+(2*Q-1)*(n-1)+(Q-1);%Total number of variables
 
