@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Math 3800
 %Seth Goldish, Ely Biggs, Taylor Saintable
@@ -73,4 +71,3 @@ r = decode(g);
 
 A = gena(l);
 A = [A;-A];
->>>>>>> refs/remotes/origin/Ely
