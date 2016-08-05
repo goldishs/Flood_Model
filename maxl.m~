@@ -1,3 +1,21 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Math 3800
+%Seth Goldish, Ely Biggs, Taylor Saintable
+%
+%Flood Model     Tableau Generator    Version 1
+%
+%
+% this function gereates the B vector for linprog. it was recently updated
+% to use sparce to save memory.
+%
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   START OF maxl.m function
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 function [lp] = maxl(i,j,k)
 global Q
 global n
@@ -12,30 +30,33 @@ if (k >= 1) && (k < Q)
         lp = 3;
     end
 end
-    for i = i:m
 
-        if (j >= 1) && (j < n)
-            lp = 2
-        end
-        if (j == n)
-            lp = 1
-        end
+if (i == m)
+    if (j >= 1) && (j < n)
+        lp = 2;
+    elseif (j == n)
+        lp = 1;
+    elseif (j < n)
+        lp = 1;
     end
 end
 
 if (k == Q)
-    if (i == m) && (j == n) && (k == Q)
-        if ( i <= m-1)
-            if (j == 1)
-                lp = 3
-            elseif (j > 1) && (j < n)
-                lp = 4
-            else (j == n)
-                lp = 2
-            end
-            end
-            end
+    if (i == m || j == n)
+        lp = 0;
+%         disp('ERROR: l is undefined')
+        return
+    end
+    if (i < m)
+        if (j == 1)
+            lp = 3;
+        elseif ((j > 1) && (j < n))
+            lp = 4;
+        elseif ( j == n)
+            lp = 2;
         end
     end
-end
+    if ((i == m) && (j < n))
+        lp = 1;
+    end
 end
