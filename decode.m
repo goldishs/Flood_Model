@@ -1,3 +1,21 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Math 3800
+%Seth Goldish, Ely Biggs, Taylor Saintable
+%
+%Flood Model     Tableau Generator    Version 1
+%
+%
+% decode is the inverse of the encode function meaning you enter an index
+% g and it will return a 1 X 4 vector r that contains i,j,k,l. 
+%
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   START OF decode.m function
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 function [r] = decode(g)
 global Q
 global n
