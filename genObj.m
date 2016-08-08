@@ -29,12 +29,12 @@ decode(h);
 %pf([i,j,k,l])
 
 r = decode(g);
-for i = 1:5
-    for j = 1:5
-        for k = 1:3
+for i = 1:m
+    for j = 1:n
+        for k = 1:Q
             for l = 1:maxl(i,j,k)
             z = [i,j,k,l];
-            disp('imput into pf')
+            disp('input into pf')
             disp(z)    
             disp('output of pf')
             pf([i,j,k,l])
