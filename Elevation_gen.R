@@ -13,7 +13,7 @@
 ####################################################
 
 #set the working directory (Helperfunctions.R must be here)
-setwd("/Users/goldishs/Desktop/Stochastic-Project/Flood_Model")
+setwd("/Users/Taylor/Documents/CAT_MOD/Flood_Model")
 
 ### http://gis.stackexchange.com/questions/20955/how-to-generate-a-random-but-believable-digital-elevation-model
 #if raster has not yet been installed, run:
@@ -23,13 +23,13 @@ require(fields)
 source("Helperfunctions.R")
 
 #where the data files will be saved
-setwd("/Users/goldishs/Desktop/data")
+setwd("/Users/Taylor/Documents/CAT_MOD/matrices")
 
 
 set.seed(100) # makes the random not random
 
-m = 50#rows
-n = 50#columns
+m = 5#rows
+n = 5#columns
 Q = 3#layers
 
 for (i in 1:Q) {

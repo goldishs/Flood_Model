@@ -1,4 +1,4 @@
-function [i,j,k,l] = decode(g)
+function [r] = decode(g)
 global Q
 global n
 global m
@@ -35,8 +35,8 @@ elseif (1<j && i<m)
     rk = rj - (4*Q-1) - (j-2)*(5*Q-1);
 elseif (i==m)
     rk = rj -(2*Q-1)*(j-1);
-else
-    x = 5;
+% else
+%     x = 5;
 end
 
 % finding k
@@ -51,8 +51,8 @@ elseif (i==m && j<n)
     k = ceil(rk /(2));
 elseif(i==m && j==n)
     k = rk;
-else
-    x=7;
+% else
+%     x = 7;
 end
 
 
@@ -74,5 +74,6 @@ elseif (i==m && j==n)
     end
 end
 
-%return(i,j,k,l)
+r = [i,j,k,l];
+
 end
