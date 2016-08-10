@@ -48,10 +48,6 @@ T = vertcat(T1,T2,T3);
 C = rand(m*Q,n);
 S = 3*rand(m*Q,n);
 
-TCS = T.*C - S;
-
-B = genb(TCS, S);
-
 
 % number of iterations
 iter = 50;
@@ -71,3 +67,4 @@ r = decode(g);
 
 
 A = gena();
+B = genb(T,C,S);
