@@ -1,0 +1,29 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Math 3800
+%Seth Goldish, Ely Biggs, Taylor Saintable
+%
+%Flood Model     ub    Version 1
+%
+% This function generates upper bound constraints
+%
+%
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   START OF ub function
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [bounds] = genub()
+global Q
+global n
+global m
+
+mnQ = m*n*Q;
+g = encode(m,n,Q-1,1);
+bounds = sparse(mnQ,g);
+for h = 1:g
+
+end
+
+end
