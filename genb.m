@@ -16,12 +16,14 @@
 %   START OF genb.m function
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [B] = genb(TCS, S)
+function [B] = genb(T, C, S)
 global n
 global m
 global Q
 
 % TCS is a matrix made from matricies from T, C, S 
+
+TCS = T.*C - S;
 
 mnQ = n*m*Q;
 
