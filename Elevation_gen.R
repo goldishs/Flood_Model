@@ -28,8 +28,8 @@ setwd("/Users/goldishs/Desktop/data")
 
 set.seed(100) # makes the random not random
 
-m = 50#rows
-n = 50#columns
+m = 10#rows
+n = 10#columns
 Q = 3#layers
 
 for (i in 1:Q) {
@@ -41,7 +41,7 @@ for (i in 1:Q) {
   
   # convert and extract the non-NA values of the matrix
   E = extraction(as.matrix(r.sim))
-  write(t(E),file=paste("E",i,".txt",sep=''),ncolumns = n,sep=' ')
+  write(t(E),file=paste("data",i,".txt",sep=''),ncolumns = n,sep=' ')
   
   set.seed(i*2)
 }
