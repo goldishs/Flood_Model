@@ -50,7 +50,7 @@ S = 3*rand(m*Q,n);
 
 
 % number of iterations
-iter = 10;
+iter = 1;
 
 % test functions encode and undoing
 % i = 100;
@@ -67,16 +67,19 @@ r = decode(g);
 
 G = rand(m*Q,n);
 F = rand(m*Q,n);
-
+%%
 A = gena();
 ub = genub(G,F);%upper boundary constraints
 lb = -ub;%lower boundary constraints
 Aeq = [];
 beq = [];
+x0=[];
+options = optimoptions('linprog','Algorithm','dual-simplex');
 for time = 1:iter
     ES = E+S;%elevation + surface water
     b = genb(T,C,S);%rhs of inequality constraints
     f = ones(encode(m,n,Q-1,1),1);%objective function
-    x = linprog(f,A,b,Aeq,beq,lb,ub);%find optimal solution
+    [x,feval,flag]= linprog(f,A,b,Aeq,beq,lb,ub,x0,options);%find optimal solution
     
 end
+%%
