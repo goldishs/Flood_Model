@@ -36,7 +36,7 @@ for i=1:m
         for k=1:Q
             z = z + 1;
             b1(z,1) = S(((k-1)*m+i), j);
-            b2(z,1) = TCS(((k-1)*m+i), j);
+            %b2(z,1) = TCS(((k-1)*m+i), j);
         end
     end
 end
@@ -45,5 +45,5 @@ end
 
 
 
-B = [b1;b2];
+B = [b1];%;b1];
 end

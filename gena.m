@@ -53,7 +53,7 @@ for i = 1:m
 end
 
 
-A = [A;-A];
+%A = [A;A];
 
 end
 

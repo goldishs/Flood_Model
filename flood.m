@@ -26,6 +26,7 @@ global Q
 
 % m, n, and Q should be 50,50,and 3 in our final version. 
 
+
 m = 10;%rows
 n = 10;%columns
 Q = 3;%Total number of layers
@@ -34,6 +35,7 @@ V = ((4*Q-1)+(n-2)*(5*Q-1)+(3*Q-1))*(m-1)+(2*Q-1)*(n-1)+(Q-1);%Total number of v
 
 % creating Elevations (these are randomly generated and are only to test if
 % the generating functions work. 
+
 % T1 = 10+2*rand(m,n);
 % T2 = 10+2*rand(m,n);
 % T3 = 10+2*rand(m,n);
@@ -55,10 +57,10 @@ E3 = T3;
 E = vertcat(E1,E2,E3);
 T = vertcat(T1,T2,T3);
 
+
 %C = rand(m*Q,n);
 C=zeros(m*Q,n);
 S = 1+rand(m*Q,n);
-
 
 % number of iterations
 iter = 1;
@@ -78,11 +80,11 @@ r = decode(g);
 
 G = rand(m*Q,n);
 F = rand(m*Q,n);
-%%
+
 A = gena();
 ub = genub(G,F);%upper boundary constraints
 lb = -ub;%lower boundary constraints
-ub = [];
+%ub = [];
 Aeq = [];
 beq = [];
 x0=[];
@@ -95,6 +97,7 @@ for time = 1:iter
     %f = vertcat(ones(V/2,1),-1*ones(V/2,1));%objective function
     f = genf(ES);%objective function
     [x,feval,flag]= linprog(f,A,b,Aeq,beq,lb,ub,x0,options);%find optimal solution
-    
+    ds = deltaS(x);
+    S = S+ ds;
 end
 %%
