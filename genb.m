@@ -20,13 +20,17 @@ function [B] = genb(T,C,S)
 global n
 global m
 global Q
-TCS = T.*C - S;
+
+% Be sure that at no point does TCS become negative. it is a strictly
+% positive function. 
+TCS = (T.*C) - S;
 % TCS is a matrix made from matricies from T, C, S 
 
 mnQ = n*m*Q;
 
-b1 = sparse(mnQ, 1);
-b2 = sparse(mnQ, 1); % used to be zeros
+% Could use sparce but there is no point since every index is filled. 
+b1 = zeros(mnQ, 1); 
+b2 = zeros(mnQ, 1); 
 
 z = 0;
 
@@ -35,15 +39,11 @@ for i=1:m
     for j=1:n
         for k=1:Q
             z = z + 1;
-            b1(z,1) = S(((k-1)*m+i), j);
-            b2(z,1) = TCS(((k-1)*m+i), j);
+            b1(z,1) = S(((k-1)*m+i), j); % limit of S that can leave
+            b2(z,1) = TCS(((k-1)*m+i), j); % limit of S that can enter
         end
     end
 end
-
-
-
-
 
 B = [b1;b2];
 end

@@ -30,6 +30,8 @@ z = 0;
 for i = 1:m
     for j = 1:n
         for k = 1:Q
+            %  creates 1 X g vector, that shows arrows pointing to each
+            %  node.
             z = z + 1;
             a1 = sparse(1,encode(m,n,Q-1,1));
             for l = 1: maxl(i,j,k)
