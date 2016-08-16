@@ -67,7 +67,11 @@ elseif (1<j && i<m)
 elseif (i==m)
     rk = rj -(2*Q-1)*(j-1);
 else
+<<<<<<< HEAD
+    %throw an error check here
+=======
     x=5
+>>>>>>> master
 end
     
 % finding k 
@@ -83,7 +87,11 @@ elseif (i==m && j<n)
 elseif(i==m && j==n)
     k = rk;
 else
+<<<<<<< HEAD
+    %throw an error check here
+=======
     x=7
+>>>>>>> master
 end
     
     
