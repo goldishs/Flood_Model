@@ -41,6 +41,7 @@ for i=1:m
             z = z + 1;
             b1(z,1) = S(((k-1)*m+i), j); % limit of S that can leave
             b2(z,1) = TCS(((k-1)*m+i), j); % limit of S that can enter
+
         end
     end
 end

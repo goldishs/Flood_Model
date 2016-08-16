@@ -1,7 +1,9 @@
+
 function [DS] = deltaS(xnext)
 global Q
 global n
 global m
+
 
 % What we need to do is create a function takes in every arrow pointing to
 % a node and calculates the total water that entered the node and total
