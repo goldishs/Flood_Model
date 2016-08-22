@@ -100,11 +100,12 @@ x0=[];
 options = optimoptions('linprog','Algorithm','dual-simplex');
 for time = 1:iter
    
-    ub = genub(G,F,S,T,C);%upper boundary constraints
+    ub = genub(G,F);%upper boundary constraints
     lb = -ub;%lower boundary constraints
     b = genb(T,C,S);%rhs of inequality constraints
     [x,feval,flag]= linprog(f,A,b,Aeq,beq,lb,ub,x0,options);%find optimal solution
     DS = deltaS(x); % creating delta S matrix. 
+    %S=S+DS;
 
 end
 %%
